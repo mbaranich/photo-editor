@@ -25,12 +25,22 @@ const DEFAULT_OPTIONS = [
 		unit: "%",
 	},
 	{
+		name: "Saturation",
+		property: "saturate",
+		value: 100,
+		range: {
+			min: 0,
+			max: 200,
+		},
+		unit: "%",
+	},
+	{
 		name: "Grayscale",
 		property: "grayscale",
 		value: 0,
 		range: {
 			min: 0,
-			max: 200,
+			max: 100,
 		},
 		unit: "%",
 	},
@@ -57,7 +67,7 @@ const DEFAULT_OPTIONS = [
 	{
 		name: "Blur",
 		property: "blur",
-		value: 100,
+		value: 0,
 		range: {
 			min: 0,
 			max: 20,
@@ -80,9 +90,17 @@ function App() {
 		});
 	}
 
+	function getImageStyle() {
+		const filters = options.map((option) => {
+			return `${option.property}(${option.value}${option.unit})`;
+		});
+
+		return { filter: filters.join(" ") };
+	}
+
 	return (
 		<div className="container">
-			<div className="main-image"></div>
+			<div className="main-image" style={getImageStyle()}></div>
 			<div className="sidebar">
 				{options.map((option, index) => {
 					return (
