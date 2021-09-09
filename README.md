@@ -1,3 +1,8 @@
+# photo-editor 
+
+# Purpose
+Use the responsiveness ReactJS provides to update CSS filters allowing the user to make simple changes to a photo.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
